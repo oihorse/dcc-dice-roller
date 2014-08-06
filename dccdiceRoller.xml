@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+
+<!-- /*
+* Copyright (c) 2013 Christian Gohlinghorst 
+* contact: oihorse@gmail.com
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see http://www.gnu.org/licenses/.
+*/-->
+
+	<ModulePrefs title="DCC Dice Roller">
+		<Require feature="rpc"/>
+		<Require feature="views"/>
+	</ModulePrefs>
+
+	<Content type="html">
+	<![CDATA[
+		<!DOCTYPE html>
+		<script  src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+		<script src="http://www.horsegoeswest.com/apps/dccdiceroller/javascript/dccdiceRoller.js"></script>
+		<script language="javascript">
+				function toggleDiv(divid)
+				{
+					if(document.getElementById(divid).style.display == 'none')
+					{
+						document.getElementById(divid).style.display = 'block';
+						document.getElementById("hide").innerHTML = "Hide History";
+					}
+					else
+					{
+						document.getElementById(divid).style.display = 'none';
+						document.getElementById("hide").innerHTML = "Show History";
+					}
+				}
+				
+				
+				
+				function callGoogleApi()
+				{
+					diceButtonClick()
+				}
+				
+				function callAttackRoll()
+				{
+					attackButtonClick()
+				}
+				
+				function callFighterAttackRoll()
+				{
+					fighterAttackButtonClick()
+				}
+				
+				function callSwordBoardAttackRoll()
+				{
+					swordBoardAttackButtonClick()
+				}
+		</script>
+		
+		<div id="outerContainer">
+			<div id="mainbox" style="padding:5px;" >
+			  
+				<p style="text-align:center;"><img src="http://www.horsegoeswest.com/apps/dccdiceroller/images/dccdicerollerlogo.png" 
+				alt="DCC Dice Roller Logo"></p>
+				<h3>v0.20</h3>
+				<label>Number of Dice to be rolled:</>
+				<select id="NumberOfDice">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+				</select>
+				<br />
+				<form name="Dice">
+					<input type="radio" id="d3" name="dice" value="3" /> d3 
+					<input type="radio" id="d4" name="dice" value="4" /> d4 
+					<input type="radio" id="d5" name="dice" value="5" /> d5
+					<input type="radio" id="d6" name="dice" value="6" checked="checked" /> d6
+					<input type="radio" id="d7" name="dice" value="7" /> d7 <br>
+					<input type="radio" id="d8" name="dice" value="8" /> d8 
+					<input type="radio" id="d10" name="dice" value="10" /> d10
+					<input type="radio" id="d12" name="dice" value="12" /> d12
+					<input type="radio" id="d14" name="dice" value="14" /> d14
+					<input type="radio" id="d16" name="dice" value="16" /> d16 <br>
+					<input type="radio" id="d20" name="dice" value="20" /> d20 
+					<input type="radio" id="d24" name="dice" value="24" /> d24 
+					<input type="radio" id="d30" name="dice" value="30" /> d30
+					<input type="radio" id="d100" name="dice" value="100" /> d100
+				</form>
+			   
+				<br />
+				<input type=button value="Roll the bones" id="diceButton" onClick="callGoogleApi()"/>
+			   <hr>
+			   
+			   <input type=button value="Attack Roll!" id="diceButton" onClick="callAttackRoll()"/> <br />
+			   <input type=button value="Fighter Attack Roll!" id="diceButton" onClick="callFighterAttackRoll()"/> <br />
+			   <input type=button value="Sword & Board Attack Roll!" id="diceButton" onClick="callSwordBoardAttackRoll()"/>
+			   <hr>
+			   
+				<dl>
+					<dt id="theDiceRoller"></dt>
+					<dd id="diceValueRolled"></dd>
+				</dl>
+			   
+			 </div>
+			
+			  <div id="history" style="float:left; border-style:groove; border-color:black; padding:5px; display:none; overflow:auto; max-height:400px; min-width:180px; resize:both;">
+				
+			 </div>
+			 
+			 <div style="clear:both;">
+			 <a id="hide" href="javascript:;" onmousedown="toggleDiv('history');">Show History</a>
+			</div>
+		</div>
+		]]>
+	</Content>
+</Module>
