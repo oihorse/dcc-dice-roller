@@ -1,0 +1,1 @@
+This is a app for Google Hangout that uses all the regular and not so regular dice that are required in the DCC roleplaying game. Also has short cut buttons for fighter attacks and other bits.
